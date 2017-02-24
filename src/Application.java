@@ -3,7 +3,7 @@ import java.util.*;
 /**
  * @author Chris Machala
  * @email Chm60@aber.ac.uk
- * @version 1.0
+ * @version 2.0
  */
 
 /**
@@ -19,6 +19,8 @@ public class Application {
 
     }
 
+
+
     /**  Method that creates the clock and time objects then it reads user inputs their values to the times for current and alarm */
     private static void runTests(){
         int currentHour = 0;
@@ -27,51 +29,280 @@ public class Application {
         int alarmMinute = 0;
 
         Clock Clock01 = new Clock(true);
+        runMenuWithForLoop(Clock01);
+      //  runMenuWithWhileLoop(Clock01);
 
-        /** Reads usr input */
+/** old for loop that takes user input for setting current and alarm time and alarm state */
+//       /** Reads usr input */
+//
+//        Scanner reader = new Scanner(System.in);  // Reading from System.in
+//        System.out.print("current Hour: ");
+//        currentHour = reader.nextInt(); // Scans the next token of the input as an int.
+//        System.out.print("current Minute: ");
+//        currentMinute = reader.nextInt(); // Scans the next token of the input as an int.
+//
+//        Time current = new Time(currentHour,currentMinute);
+//
+//
+//        for (int i = 0; i < 5; i++){
+//
+//
+//            /**
+//             * Reads user input for alarm  and loops 5 times
+//             */
+//            System.out.print("alarm Hour: ");
+//            alarmHour = reader.nextInt(); // Scans the next token of the input as an int.
+//            System.out.print("alarm Minute: ");
+//            alarmMinute = reader.nextInt(); // Scans the next token of the input as an int.
+//
+//            Time alarm = new Time(alarmHour, alarmMinute);
+//
+//            Clock01.setAlarmTime(alarm);
+//            Clock01.setCurrentTime(current);
+//
+//            System.out.println(Clock01.toString());
+//
+//            //System.out.println("Alarm State : " + Clock01.isAlarmSet());
+//
+//        }
 
-        Scanner reader = new Scanner(System.in);  // Reading from System.in
-        System.out.print("current Hour: ");
-        currentHour = reader.nextInt(); // Scans the next token of the input as an int.
-        System.out.print("current Minute: ");
-        currentMinute = reader.nextInt(); // Scans the next token of the input as an int.
-
-        Time current = new Time(currentHour,currentMinute);
 
 
-        for (int i = 0; i < 5; i++){
+    }
+
+    /** Method that creates a menu in the command line which allows users to pass certain input using a while loop
+     * RUN MENU USING A WHILE LOOP IS FOUND HERE **/
+//     private static void runMenuWithWhileLoop(Clock clockObject){
+//
+//        int i=0;
+//        do{
+//            System.out.println("Press 1 to change the current time");
+//            System.out.println("Press 2 to set the alarm time");
+//            System.out.println("Press 3 to set the state of the alarm, the current state is : " + clockObject.isAlarmSet());
+//            System.out.println("Press 4 to check the clock status");
+//            System.out.println("Press 5 to quit");
+//
+//            Scanner reader = new Scanner(System.in);  // Reading from System.in
+//
+//            int option =  reader.nextInt();
+//            int currentHour;
+//            int currentMin;
+//            int alarmHour;
+//            int alarmMin;
+//
+//
+//            switch(option) {
+//                /**
+//                 * Sets current time( hour and minute ) also performs checks to see if time exists
+//                 */
+//                case 1 :
+//                    System.out.print("current Hour: ");
+//                    currentHour = reader.nextInt(); // Scans the next token of the input as an int.
+//                    /**
+//                     * restriction on what time you can enter here, for hour value has to be between 0 and 23
+//                     */
+//                    while (currentHour < 0 || currentHour > 23){
+//                        System.out.println("No such time, please try again!");
+//                        System.out.print("current Hour: ");
+//                        currentHour = reader.nextInt();
+//                    }
+//                    System.out.print("current Minute: ");
+//                    currentMin = reader.nextInt(); // Scans the next token of the input as an int.
+//                    /**
+//                     * restriction on what time you can enter here, for minute value has to be between 0 and 59
+//                     */
+//                    while (currentMin < 0 || currentMin > 59){
+//                        System.out.println("No such time, please try again!");
+//                        System.out.print("current Min: ");
+//                        currentMin = reader.nextInt();
+//                    }
+//                    Time current = new Time(currentHour,currentMin);
+//                    clockObject.setCurrentTime(current);
+//                    break;
+//                /**
+//                 * Sets alarm time( hour and minute ) also performs checks to see if time exists
+//                 */
+//                case 2 :
+//                    System.out.print("alarm Hour: ");
+//                    alarmHour = reader.nextInt(); // Scans the next token of the input as an int.
+//
+//                    /**
+//                     * restriction on what time you can enter here, for hour value has to be between 0 and 23
+//                     */
+//                    while (alarmHour < 0 || alarmHour > 23) {
+//                        System.out.println("No such time, please try again!");
+//                        System.out.print("alarm Hour: ");
+//                        alarmHour = reader.nextInt();
+//                    }
+//                    System.out.print("alarm Minute: ");
+//                    alarmMin = reader.nextInt(); // Scans the next token of the input as an int.
+//                    /**
+//                     * restriction on what time you can enter here, for minute value has to be between 0 and 59
+//                     */
+//                    while (alarmMin < 0 || alarmMin > 59){
+//                        System.out.println("No such time, please try again!");
+//                        System.out.print("alarm Min: ");
+//                        alarmMin = reader.nextInt();
+//                    }
+//                    Time alarm = new Time(alarmHour,alarmMin);
+//                    clockObject.setAlarmTime(alarm);
+//                    break;
+//                /**
+//                 * Inverses alarm state
+//                 */
+//                case 3 :
+//                    boolean alarmState = clockObject.isAlarmSet();
+//                    clockObject.setAlarmSet(!alarmState);
+//                    System.out.println("The alarm state is now : " + clockObject.isAlarmSet() + "\n");
+//                    break;
+//                /**
+//                 * Prints object toString
+//                 */
+//                case 4 :
+//                    System.out.println(clockObject.toString());
+//                    break;
+//                /**
+//                 * quit menu
+//                 */
+//                case 5 :
+//                    i = 5;
+//                    break;
+//
+//
+//                default :
+//                    System.out.println("Boy you fucked up man");
+//            }
+//
+//
+//
+//            i++;
+//
+//
+//}
+//  while(i<5);
+//
+//
+//
+//    }
+     /** RUN MENU USING A WHILE LOOP ENDS HERE*/
 
 
-            /**
-             * Reads user input for alarm  and loops 5 times
-             */
-            System.out.print("alarm Hour: ");
-            alarmHour = reader.nextInt(); // Scans the next token of the input as an int.
-            System.out.print("alarm Minute: ");
-            alarmMinute = reader.nextInt(); // Scans the next token of the input as an int.
 
-            Time alarm = new Time(alarmHour, alarmMinute);
+    /** Method that creates a menu in the command line which allows users to pass certain input using a for loop
+    * RUN MENU USING A FOR LOOP IS FOUND HERE*/
 
-            Clock01.setAlarmTime(alarm);
-            Clock01.setCurrentTime(current);
+    private static void runMenuWithForLoop(Clock clockObject){
 
-            System.out.println(Clock01.toString());
+        for (int i = 0; i < 5; i++ ){
 
-            //System.out.println("Alarm State : " + Clock01.isAlarmSet());
+            System.out.println("Press 1 to change the current time");
+            System.out.println("Press 2 to set the alarm time");
+            System.out.println("Press 3 to set the state of the alarm, the current state is : " + clockObject.isAlarmSet());
+            System.out.println("Press 4 to check the clock status");
+            System.out.println("Press 5 to quit");
+
+            Scanner reader = new Scanner(System.in);  // Reading from System.in
+
+            int option =  reader.nextInt();
+            int currentHour;
+            int currentMin;
+            int alarmHour;
+            int alarmMin;
+
+
+            switch(option) {
+                /**
+                 * Sets current time( hour and minute ) also performs checks to see if time exists
+                 */
+                case 1 :
+                    System.out.print("current Hour: ");
+                    currentHour = reader.nextInt(); // Scans the next token of the input as an int.
+                    /**
+                     * restriction on what time you can enter here, for hour value has to be between 0 and 23
+                     */
+                    while (currentHour < 0 || currentHour > 23){
+                        System.out.println("No such time, please try again!");
+                        System.out.print("current Hour: ");
+                        currentHour = reader.nextInt();
+                }
+                    System.out.print("current Minute: ");
+                    currentMin = reader.nextInt(); // Scans the next token of the input as an int.
+                    /**
+                     * restriction on what time you can enter here, for minute value has to be between 0 and 59
+                     */
+                    while (currentMin < 0 || currentMin > 59){
+                        System.out.println("No such time, please try again!");
+                        System.out.print("current Min: ");
+                        currentMin = reader.nextInt();
+                    }
+                    Time current = new Time(currentHour,currentMin);
+                    clockObject.setCurrentTime(current);
+                    break;
+                /**
+                 * Sets alarm time( hour and minute ) also performs checks to see if time exists
+                 */
+                case 2 :
+                    System.out.print("alarm Hour: ");
+                    alarmHour = reader.nextInt(); // Scans the next token of the input as an int.
+
+                    /**
+                     * restriction on what time you can enter here, for hour value has to be between 0 and 23
+                     */
+                    while (alarmHour < 0 || alarmHour > 23) {
+                        System.out.println("No such time, please try again!");
+                        System.out.print("alarm Hour: ");
+                        alarmHour = reader.nextInt();
+                    }
+                     System.out.print("alarm Minute: ");
+                    alarmMin = reader.nextInt(); // Scans the next token of the input as an int.
+                    /**
+                     * restriction on what time you can enter here, for minute value has to be between 0 and 59
+                     */
+                        while (alarmMin < 0 || alarmMin > 59){
+                            System.out.println("No such time, please try again!");
+                            System.out.print("alarm Min: ");
+                            alarmMin = reader.nextInt();
+                        }
+                    Time alarm = new Time(alarmHour,alarmMin);
+                    clockObject.setAlarmTime(alarm);
+                    break;
+                /**
+                 * Inverses alarm state
+                 */
+                case 3 :
+                    boolean alarmState = clockObject.isAlarmSet();
+                    clockObject.setAlarmSet(!alarmState);
+                    System.out.println("The alarm state is now : " + clockObject.isAlarmSet() + "\n");
+                    break;
+                /**
+                 * Prints object toString
+                 */
+                case 4 :
+                    System.out.println(clockObject.toString());
+                    break;
+                /**
+                 * quit menu
+                 */
+                case 5 :
+                     i = 5;
+                    break;
+
+
+                default :
+                    System.out.println("Boy you fucked up man");
+            }
+
+
+
 
         }
 
 
 
 
-
-
-        System.out.println(Clock01.toString());
-
-
-
-
     }
+
+    /**RUN MENU USING A FOR LOOP ENDS HERE*/
 
 
 }
