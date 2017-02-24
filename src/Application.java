@@ -11,17 +11,9 @@ public class Application {
 
     public static void main(String[] args){
 
-
-
-        runTests();
-
+    runTests();
 
     }
-
-
-
-
-
 
     private static void runTests(){
         int currentHour = 0;
@@ -32,18 +24,20 @@ public class Application {
         Clock Clock01 = new Clock(true);
 
         Scanner reader = new Scanner(System.in);  // Reading from System.in
-        System.out.println("current Hour: ");
+        System.out.print("current Hour: ");
         currentHour = reader.nextInt(); // Scans the next token of the input as an int.
-        System.out.println("current Minute: ");
+        System.out.print("current Minute: ");
         currentMinute = reader.nextInt(); // Scans the next token of the input as an int.
 
 
         for (int i = 0; i < 5; i++){
 
-            System.out.println("alarm Hour: ");
+            System.out.print("alarm Hour: ");
             alarmHour = reader.nextInt(); // Scans the next token of the input as an int.
-            System.out.println("alarm Minute: ");
+            System.out.print("alarm Minute: ");
             alarmMinute = reader.nextInt(); // Scans the next token of the input as an int.
+
+            System.out.println("Alarm State : " + Clock01.isAlarmSet());
 
 
 
@@ -55,7 +49,9 @@ public class Application {
         Clock01.setAlarmTime(alarm);
         Clock01.setCurrentTime(current);
 
+
         System.out.println(Clock01.toString());
+
 
 
 
