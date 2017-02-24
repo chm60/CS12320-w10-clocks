@@ -9,24 +9,25 @@ public class Clock {
         private Time currentTime;
         private boolean alarmSet;
 
+    // MAX_ROADS represents the maximum number of roads that can be connected to a Settlement object.
+
+
+
     /**
      * Constructor for objects of class Clock
      *
-     * @param startAlarmTime becomes initial alarmTime time.
-     * @param startCurrentTime becomes initial currentTime time.
-     * @param startAlarmSet becomes initial alarmSet state.
+     * @param alarmState becomes initial alarmSet state.
      *
      */
 
-    public Clock(Time startAlarmTime, Time startCurrentTime, boolean startAlarmSet){
+    public Clock( boolean alarmState){
 
-        alarmTime = startAlarmTime;
-        currentTime = startCurrentTime;
-        alarmSet = startAlarmSet;
+
+        alarmSet = alarmState;
 
     }
 
-    @Override
+
     public String toString() {
         return "Clock{" +
                 "alarmTime=" + alarmTime +
@@ -34,6 +35,7 @@ public class Clock {
                 ", alarmSet=" + alarmSet +
                 '}';
     }
+
 
     public Time getAlarmTime() {
         return alarmTime;
