@@ -23,6 +23,11 @@ public class Time {
 
     }
 
+
+    /**
+     * @return clock variables
+     */
+
     public String toString() {
         return "Time{" +
                 "hour=" + hour +
@@ -30,18 +35,34 @@ public class Time {
                 '}';
     }
 
+    /**
+     * get method for hour
+     * @return hour
+     */
     public int getHour() {
         return hour;
     }
 
+    /**
+     * set method for hour
+     * @param hour
+     */
     public void setHour(int hour) {
         this.hour = hour;
     }
 
+    /**
+     * get method for min
+     * @return minute
+     */
     public int getMinute() {
         return minute;
     }
 
+    /**
+     * set method for min
+     * @param minute
+     */
     public void setMinute(int minute) {
         this.minute = minute;
     }
