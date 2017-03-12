@@ -9,9 +9,6 @@ public class Clock {
         private Time currentTime;
         private boolean alarmSet;
 
-    /** MAX_ROADS represents the maximum number of roads that can be connected to a Settlement object. */
-
-
 
     /**
      * Constructor for objects of class Clock
@@ -68,7 +65,9 @@ public class Clock {
      * @param currentTime
      */
     public void setCurrentTime(Time currentTime) {
+
         this.currentTime = currentTime;
+
     }
 
     /**

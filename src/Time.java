@@ -21,6 +21,8 @@ public class Time {
         hour = startHour;
         minute = startMinute;
 
+
+
     }
 
 
@@ -48,8 +50,27 @@ public class Time {
      * set method for hour
      * @param hour
      */
-    public void setHour(int hour) {
-        this.hour = hour;
+    public boolean setHour(int hour) {
+
+        boolean state;
+
+        /**
+         * restriction on what time you can enter here, for minute value has to be between 0 and 59
+         */
+                        if (hour < 0 || hour > 23){
+                    //error
+                           state = false;
+
+                                  }else{
+
+                            this.hour = hour;
+
+                            state = true;
+
+        }
+
+        return state;
+
     }
 
     /**
@@ -64,7 +85,26 @@ public class Time {
      * set method for min
      * @param minute
      */
-    public void setMinute(int minute) {
-        this.minute = minute;
+    public boolean setMinute(int minute) {
+
+        boolean state;
+
+        /**
+         * restriction on what time you can enter here, for minute value has to be between 0 and 59
+         */
+        if (minute < 0 || minute > 59){
+            //error
+            state = false;
+
+        }else{
+
+            this.minute = minute;
+
+            state = true;
+
+        }
+
+        return state;
+
     }
 }
